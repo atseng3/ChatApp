@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="public/javascripts/chat_ui.js"></script>
+  <script src="public/javascripts/chat.js"></script>
+
+</head>
+<body>
+  <div class="messages">For displaying messages</div>
+  <form id="target" accept-charset="utf-8">
+    <input type="text" name="chat[text]">
+    <input type="submit" value="Send">
+  </form>
+
+  <script>
+  $(document).ready(function () {
+    var socket = io.connect('http://localhost');
+    var chat = new Chat(socket);
+    chat.getMessage();
+  });
+  </script>
+</body>
+</html>
